@@ -1,10 +1,10 @@
 return {
   {
-    "stevearc/conform.nvim",
+    'stevearc/conform.nvim',
     lazy = true,
-    dependencies = { "mason.nvim" },
-    event = { "BufWritePre" },
-    cmd = { "ConformInfo" },
+    dependencies = { 'mason.nvim' },
+    event = { 'BufWritePre' },
+    cmd = { 'ConformInfo' },
     opts = {},
   },
 }

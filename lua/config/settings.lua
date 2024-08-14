@@ -1,17 +1,15 @@
 local opt = vim.opt
 
-
 opt.clipboard = 'unnamedplus'
-opt.completeopt = {'menu', 'menuone', 'noinsert', 'noselect'}
+opt.completeopt = { 'menu', 'menuone', 'noinsert', 'noselect' }
 
+-- TAB --
+opt.expandtab = true -- TABS are using spaces
+opt.softtabstop = 2 -- number of spaces in TAB when editing
+opt.shiftwidth = 2 -- insert 2 space when TAB is pressed
+opt.tabstop = 2 -- number of visual spaces per TAB
 
- -- TAB --
-opt.expandtab = true	-- TABS are using spaces
-opt.softtabstop = 2	-- number of spaces in TAB when editing
-opt.shiftwidth = 2	-- insert 2 space when TAB is pressed
-opt.tabstop = 2		-- number of visual spaces per TAB
-
- -- UI CONFIG -- 
+-- UI CONFIG --
 opt.cursorline = true
 opt.number = true
 opt.relativenumber = true
@@ -25,33 +23,33 @@ opt.scrolloff = 10
 opt.textwidth = 78
 opt.updatetime = 250
 
- -- INDENT --
+-- INDENT --
 opt.autoindent = true
 opt.breakindent = true
 opt.smartindent = true
 opt.wrap = true
 
- -- SEARCHING --
+-- SEARCHING --
 opt.hlsearch = false
 opt.incsearch = true
 opt.ignorecase = true
 opt.smartcase = true
 
- -- SPELLING --
+-- SPELLING --
 opt.encoding = 'UTF-8'
 
- -- FILE -- 
+-- FILE --
 opt.swapfile = false
 opt.title = true
 
- -- DIAGNOSTIC CONFIGURATION -- 
-vim.diagnostic.config({
+-- DIAGNOSTIC CONFIGURATION --
+vim.diagnostic.config {
   signs = {
     text = {
-      [vim.diagnostic.severity.ERROR] = "󰅚 " ,
-      [vim.diagnostic.severity.WARN] = "󰀪 " ,
-      [vim.diagnostic.severity.INFO] = "󰌶 " ,
-      [vim.diagnostic.severity.HINT] = " " ,
+      [vim.diagnostic.severity.ERROR] = '󰅚 ',
+      [vim.diagnostic.severity.WARN] = '󰀪 ',
+      [vim.diagnostic.severity.INFO] = '󰌶 ',
+      [vim.diagnostic.severity.HINT] = ' ',
     },
   },
   float = {
@@ -60,10 +58,10 @@ vim.diagnostic.config({
     focusable = false,
     style = 'minimal',
     source = 'if_many',
-    prefix = ' 󱅶 '
+    prefix = ' 󱅶 ',
   },
   severity_sort = true,
   underline = true,
   update_in_insert = false,
   virtual_text = false,
-})
+}

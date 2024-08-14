@@ -20,34 +20,37 @@ keymap.set('n', '<C-right>', ':vertical resize +2<CR>', opts)
 keymap.set('n', '<C-up>', ':resize +2<CR>', opts)
 keymap.set('n', '<C-down>', ':resize -2<CR>', opts)
 
-
 -----------------------------------------------------------------------
 ----------                  FILES KEYMAPS                    ----------
 -----------------------------------------------------------------------
 keymap.set('n', '<C-s>', function()
-  vim.cmd('w')
-  vim.cmd('source %')
-end,opts)
-
+  vim.cmd 'w'
+end, opts)
 
 -----------------------------------------------------------------------
 ----------                 BUFFER KEYMAPS                    ----------
 -----------------------------------------------------------------------
-keymap.set("n", "<S-h>", ":bprevious<CR>", opts)
-keymap.set("n", "<S-l>", ":bnext<CR>", opts)
-keymap.set("n", "<leader>bd", ":bdelete<CR>", opts)
+keymap.set('n', '<S-h>', ':bprevious<CR>', opts)
+keymap.set('n', '<S-l>', ':bnext<CR>', opts)
+keymap.set('n', '<leader>bd', ':bdelete<CR>', opts)
 
 -----------------------------------------------------------------------
 ----------                   TABS KEYMAPS                    ----------
 -----------------------------------------------------------------------
-keymap.set("n", "<leader>tn", ":tabnew<CR>", opts)
-keymap.set("n", "<leader>tc", ":tabclose<CR>", opts)
-keymap.set("n", "<A-,>", ":tabprevious<CR>", opts)
-keymap.set("n", "<A-.>", ":tabnext<CR>", opts)
-
+keymap.set('n', '<leader>tn', ':tabnew<CR>', opts)
+keymap.set('n', '<leader>tc', ':tabclose<CR>', opts)
+keymap.set('n', '<A-,>', ':tabprevious<CR>', opts)
+keymap.set('n', '<A-.>', ':tabnext<CR>', opts)
 
 -----------------------------------------------------------------------
 ----------              PACKAGE MANAGER KEYMAPS              ----------
 -----------------------------------------------------------------------
-keymap.set("n", "<leader>M", ":Mason<CR>", opts)
-keymap.set("n", "<leader>L", ":Lazy<CR>", opts)
+keymap.set('n', '<leader>M', ':Mason<CR>', opts)
+keymap.set('n', '<leader>L', ':Lazy<CR>', opts)
+
+-----------------------------------------------------------------------
+----------                FORMATTER KEYMAPS                  ----------
+-----------------------------------------------------------------------
+keymap.set('n', '<leader>cF', function()
+  require('conform').format { async = true }
+end, opts)
