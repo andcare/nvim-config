@@ -125,6 +125,7 @@ require('mini.pairs').setup {
 ---------            GITSIGNS UI           ---------
 ----------------------------------------------------
 require('gitsigns').setup {
+  current_line_blame = true,
   signs = {
     add = { text = '▎' },
     change = { text = '▎' },
@@ -141,3 +142,5 @@ require('gitsigns').setup {
     changedelete = { text = '▎' },
   },
 }
+
+-- Hello to the world of knowledge
