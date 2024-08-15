@@ -24,6 +24,16 @@ require('catppuccin').setup {
     notify = true,
     mason = true,
     noice = true,
+    native_lsp = {
+      enabled = true,
+      underlines = {
+        errors = { 'underline' },
+        hints = { 'underline' },
+        warnings = { 'underline' },
+        information = { 'underline' },
+        ok = { 'underline' },
+      },
+    },
   },
 }
 
@@ -55,4 +65,53 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 ---------------------------------------------------------
 require('mini.indentscope').setup {
   symbol = '╏',
+}
+
+---------------------------------------------------------
+--------              STATUSLINE UI              --------
+---------------------------------------------------------
+local getAttachedLSP = function()
+  local msg = 'No Active LSP'
+  local LspClient = vim.lsp.get_clients()
+  local currentBufferType = vim.api.nvim_get_option_value('filetype', { buf = 0 })
+
+  if next(LspClient) == nil then
+    return msg
+  end
+
+  for _, client in ipairs(LspClient) do
+    local filetypes = client.config.filetypes
+    if filetypes and vim.fn.index(filetypes, currentBufferType) ~= 1 then
+      return client.name
+    end
+  end
+
+  return msg
+end
+
+require('lualine').setup {
+  options = {
+    theme = 'catppuccin',
+    section_separators = { left = '', right = '' },
+    component_separators = { left = '', right = '' },
+  },
+  sections = {
+    lualine_a = {
+      {
+        'fileformat',
+        separator = { left = '', right = '█' },
+        right_padding = 2,
+      },
+    },
+    lualine_b = { 'branch', 'diff', 'diagnostics' },
+    lualine_c = {
+      'filename',
+    },
+    lualine_x = {
+      { getAttachedLSP, icon = ' LSP:' },
+      'encoding',
+      'filetype',
+    },
+    lualine_z = { { 'location', separator = { right = '', left = '' }, left_padding = 2 } },
+  },
 }
