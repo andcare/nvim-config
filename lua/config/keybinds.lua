@@ -54,3 +54,10 @@ keymap.set('n', '<leader>L', ':Lazy<CR>', opts)
 keymap.set('n', '<leader>cF', function()
   require('conform').format { async = true }
 end, opts)
+
+-----------------------------------------------------------------------
+----------                TELESCOPE KEYMAPS                  ----------
+-----------------------------------------------------------------------
+keymap.set('n', '<leader>ff', ':Telescope find_files<CR>', opts)
+keymap.set('n', '<leader>fb', ':Telescope buffers<CR>', opts)
+keymap.set('n', '<leader>tgc', ':Telescope git_commits<CR>', opts)

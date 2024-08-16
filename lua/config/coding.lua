@@ -146,4 +146,7 @@ require('gitsigns').setup {
   },
 }
 
--- Hello to the world of knowledge
+----------------------------------------------------
+---------          TELESCOPE UI            ---------
+----------------------------------------------------
+require('telescope').setup {}

@@ -115,3 +115,37 @@ require('lualine').setup {
     lualine_z = { { 'location', separator = { right = '', left = '' }, left_padding = 2 } },
   },
 }
+
+---------------------------------------------------------
+--------            COMMAND LINE UI              --------
+---------------------------------------------------------
+require('noice').setup {
+  lsp = {
+    override = {
+      ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
+      ['vim.lsp.util.stylize_markdown'] = true,
+      ['cmp.entry.get_documentation'] = true, -- requires hrsh7th/nvim-cmp
+    },
+  },
+  views = {
+    popupmenu = {
+      enabled = true,
+      relative = 'editor',
+      position = {
+        row = 8,
+        col = '50%',
+      },
+      size = {
+        width = 60,
+        height = 10,
+      },
+      border = {
+        style = 'rounded',
+        padding = { 0, 1 },
+      },
+      win_options = {
+        winhighlight = { Normal = 'Normal', FloatBorder = 'DiagnosticInfo' },
+      },
+    },
+  },
+}
