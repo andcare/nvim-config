@@ -59,5 +59,7 @@ end, opts)
 ----------                TELESCOPE KEYMAPS                  ----------
 -----------------------------------------------------------------------
 keymap.set('n', '<leader>ff', ':Telescope find_files<CR>', opts)
-keymap.set('n', '<leader>fb', ':Telescope buffers<CR>', opts)
+keymap.set('n', '<leader>ffb', ':Telescope buffers<CR>', opts)
 keymap.set('n', '<leader>tgc', ':Telescope git_commits<CR>', opts)
+keymap.set('n', '<leader>fb', ':Telescope file_browser<CR>', opts)
+keymap.set('n', '<leader>fcb', ':Telescope file_browser path=%:p:h select_buffer=true<CR>', opts)
